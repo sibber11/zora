@@ -1,5 +1,8 @@
-export const trans = (key, replace, Zora) => {
-  const locale = window.locale
+export const trans = (key, replace,locale = null, Zora) => {
+
+    if (!locale || typeof locale !== 'string') {
+        locale = window.locale
+    }
 
   let translation = null
 

@@ -40,7 +40,7 @@ Alternatively, you can compile the translations to resources/js in your dev and 
 ```js
 // zora.js
 
-const Ziggy = {
+const Zora = {
     translations: {"en": {"php": {}, "json": {}}};
 };
 if (typeof window !== 'undefined' && typeof window.Zora !== 'undefined') {
@@ -114,11 +114,11 @@ import { Zora } from '../zora.js'
 
 // ...
 
-__(key: string, replacers: array, config: Zora)
+__(key: string, replacers: array, locale: string|null = null, config: Zora)
 
 // or
 
-trans(key: string, replacers: array, config: Zora)
+trans(key: string, replacers: array, locale: string|null = null, config: Zora)
 
 ```
 
@@ -152,11 +152,11 @@ There is no built in integration for svelte, however to avoid passing in the Zor
 
     // window.locale = document.documentElement.lang; // optional if not set in app.blade.php
 
-    export function __(key, replace, config=Zora){
-        return t(key, replace, config);
+    export function __(key, replace, locale = null, config=Zora){
+        return t(key, replace, locale, config);
     }
-    export function trans(key, replace, config=Zora){
-        return t(key, replace, config);
+    export function trans(key, replace, locale = null, config=Zora){
+        return t(key, replace, locale, config);
     }
 
 </script>
@@ -210,4 +210,22 @@ return [
 ```js
 // Dashbaord.js
 __("messages.welcome", {"name": "Zora", "count": 8});  // Welcome, Zora! There are 8 apples.
+```
+
+**With Locale Override**
+```php
+// lang/en/messages.php
+return [
+    'welcome' => 'Welcome, :name! There are :count apples.',
+]
+```
+```php
+// lang/bn/messages.php
+return [
+    'welcome' => 'স্বাগতম, :name!',
+]
+```
+```js
+// Dashbaord.js
+__("messages.welcome", {"name": "Zora"}, 'bn');  // স্বাগতম, Zora!
 ```

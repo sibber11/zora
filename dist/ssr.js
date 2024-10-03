@@ -3,8 +3,8 @@ import { trans } from './server.js'
 export const ZoraSSR = {
 	install: (v, options) => v.mixin({
     methods: {
-      __: (key, replace, config = options) => trans(key, replace, config),
-      trans: (key, replace, config = options) => trans(key, replace, config)
+      __: (key, replace, locale = null, config = options) => trans(key, replace, locale, config),
+      trans: (key, replace, locale = null, config = options) => trans(key, replace, locale, config)
     }
   })
 }

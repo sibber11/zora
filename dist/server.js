@@ -1,5 +1,7 @@
-export const trans = (key, replace, Zora) => {
-  const locale = process.env.LOCALE
+export const trans = (key, replace, locale = null, Zora) => {
+    if (!locale || typeof locale !== 'string') {
+        locale = process.env.LOCALE
+    }
 
   let translation = null
 

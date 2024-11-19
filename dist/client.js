@@ -40,3 +40,7 @@ export const checkForVariables = (translation, replace) => {
 
   return translated
 }
+
+export const transAttr = (key, locale = null, Zora) => {
+    return trans('validation.attributes.'+key, null, locale, Zora)
+};

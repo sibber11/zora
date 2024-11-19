@@ -1,5 +1,5 @@
-import { trans } from './client.js'
+import { trans, transAttr } from './client.js'
 import { ZoraVue } from './vue.js'
 import { ZoraSSR } from './ssr.js'
 
-export { trans, ZoraVue, ZoraSSR }
+export { trans, transAttr, ZoraVue, ZoraSSR }

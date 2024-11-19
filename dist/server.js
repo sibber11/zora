@@ -41,5 +41,5 @@ export const checkForVariables = (translation, replace) => {
 }
 
 export const transAttr = (key, locale = null, Zora) => {
-    return trans('validation.attributes.'+key, null, locale, Zora)
+    return trans('validation.attributes.'+key, undefined, locale, Zora)
 };
